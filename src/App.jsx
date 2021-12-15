@@ -1,11 +1,13 @@
 import React, { useState, useEffect} from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 import jwtDecode from "jwt-decode";
-import Login from "./Components/Login";
+import Login from "./Components/Login/Login.jsx";
 import Register from "./Components/Register/Register";
-import FriendsList from "./Components/FriendsList";
-import Profile from "./Components/Profile";
-import Forum from "./Components/Forum";
+import NavBar from "./Components/NavBar/NavBar.jsx";
+import Logout from "./Components/Logout/Logout.jsx";
+// import FriendsList from "./Components/FriendsList";
+// import Profile from "./Components/Profile";
+// import Forum from "./Components/Forum";
 
 const App = () => {
     const [user, setUser] = useState({});
@@ -33,16 +35,16 @@ const App = () => {
                 <Route
                   path ='/'
                   exact
-                  render = {props => {
-                      if (!user){
+                  render = {() => {
+                      if (!user.email){
                         return <Redirect to ="/login"/>
                     }}}
                 />
                 <Route path="/Login" component={Login} />
-                <Route path="/FriendsList" component={FriendsList} />
-                <Route path="/Profile" component={Profile} />
+                {/* <Route path="/FriendsList" component={FriendsList} /> */}
+                {/* <Route path="/Profile" component={Profile} /> */}
                 <Route path="/Register" component={Register} />
-                <Route path="/Forum" component={Forum} />
+                {/* <Route path="/Forum" component={Forum} /> */}
                 <Route path="/Logout" component={Logout} />
               </Switch>
           </div>
