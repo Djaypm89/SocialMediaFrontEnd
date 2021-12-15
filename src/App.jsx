@@ -6,7 +6,7 @@ import Register from "./Components/Register/Register";
 import NavBar from "./Components/NavBar/NavBar.jsx";
 import Logout from "./Components/Logout/Logout.jsx";
 // import FriendsList from "./Components/FriendsList";
-// import Profile from "./Components/Profile";
+import Profile from "./Components/Profile/Profile";
 // import Forum from "./Components/Forum";
 
 const App = () => {
@@ -42,7 +42,7 @@ const App = () => {
                 />
                 <Route path="/Login" component={Login} />
                 {/* <Route path="/FriendsList" component={FriendsList} /> */}
-                {/* <Route path="/Profile" component={Profile} /> */}
+                <Route path="/Profile" component={Profile} />
                 <Route path="/Register" component={Register} />
                 {/* <Route path="/Forum" component={Forum} /> */}
                 <Route path="/Logout" component={Logout} />
