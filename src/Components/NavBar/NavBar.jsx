@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import './NavBar.css'
 
 const NavBar = ({user}) => {
   return (
@@ -12,7 +13,6 @@ const NavBar = ({user}) => {
             {user.email &&
             <Link className="navbar-brand" to={"/Forum"}>Social Media Placeholder</Link>
             }
-          <div className="collapse navbar-collapse" id="navbarColor03">
             <ul className="navbar-nav me-auto">
             {user.email &&
                 <div >
@@ -28,8 +28,7 @@ const NavBar = ({user}) => {
                     <li className="nav-item">
                         <Link className="nav-link" to={"/Logout"}>Log Out</Link>
                     </li>
-                </div>
-            }
+                </div>}
             {!user.email &&
                 <div>
                     <li className="nav-item">
@@ -38,10 +37,8 @@ const NavBar = ({user}) => {
                     <li className="nav-item">
                         <Link className="nav-link" to={"/Register"}>Register</Link>
                     </li>
-                </div>
-            }   
+                </div>} 
             </ul>
-          </div>
         </div>
       </nav>
     </div>

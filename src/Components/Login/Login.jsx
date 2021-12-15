@@ -32,11 +32,10 @@ const Login = (props) => {
             console.log(response)
             localStorage.setItem('token', response.data);
             console.log(localStorage)
-            // window.location('/');
-            return localStorage;
+            window.location = '/Forum';
 
         } catch (error) {
-            console.log("Couldn't Retrieve Token!");
+            console.log(`Couldn't Retrieve Token! ${error}`);
         }
     }
 

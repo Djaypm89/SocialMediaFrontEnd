@@ -53,10 +53,3 @@ const App = () => {
 }
 
 export default App;
-
-/* 
-    Pages:
-        Profile Page
-        
-        Post Page
-*/
