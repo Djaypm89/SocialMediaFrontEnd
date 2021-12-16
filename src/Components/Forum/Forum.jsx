@@ -1,4 +1,4 @@
-/* import axios from "axios";
+import axios from "axios";
 import React, { useState } from "react";
 import Post from "../Post/Post";
 import "./App.css";
@@ -38,4 +38,4 @@ const Forum = (props) => {
       );
 }   
 
-export default Forum; */
+export default Forum;

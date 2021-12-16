@@ -1,4 +1,4 @@
-/* import React, { useState } from 'react';
+import React, { useState } from 'react';
 //import "./Post.css";
 
 const Post = (props) => {
@@ -53,4 +53,4 @@ const Post = (props) => {
     );
 }
 
-export default Post; */
+export default Post;
