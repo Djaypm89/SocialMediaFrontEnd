@@ -7,7 +7,7 @@ import NavBar from "./Components/NavBar/NavBar.jsx";
 import Logout from "./Components/Logout/Logout.jsx";
 // import FriendsList from "./Components/FriendsList";
 import Profile from "./Components/Profile/Profile";
-// import Forum from "./Components/Forum";
+import Forum from "./Components/Forum/Forum.jsx";
 
 const App = () => {
     const [user, setUser] = useState({});
@@ -44,7 +44,7 @@ const App = () => {
                 {/* <Route path="/FriendsList" component={FriendsList} /> */}
                 <Route path="/Profile" component={Profile} />
                 <Route path="/Register" component={Register} />
-                {/* <Route path="/Forum" component={Forum} /> */}
+                <Route path="/Forum" component={Forum} />
                 <Route path="/Logout" component={Logout} />
               </Switch>
           </div>
