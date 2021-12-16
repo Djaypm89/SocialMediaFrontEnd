@@ -29,11 +29,8 @@ const Login = (props) => {
     const loginUser = async (user) => {
         try {
             let response = await axios.post("http://localhost:5000/api/user/login", user);
-            console.log(response)
             localStorage.setItem('token', response.data);
-            console.log(localStorage)
             window.location = '/Forum';
-
         } catch (error) {
             console.log(`Couldn't Retrieve Token! ${error}`);
         }

@@ -5,9 +5,9 @@ import Login from "./Components/Login/Login.jsx";
 import Register from "./Components/Register/Register";
 import NavBar from "./Components/NavBar/NavBar.jsx";
 import Logout from "./Components/Logout/Logout.jsx";
-// import FriendsList from "./Components/FriendsList";
 import Profile from "./Components/Profile/Profile";
 import Forum from "./Components/Forum/Forum.jsx";
+import FriendsList from "./Components/FriendsList/FriendsList.jsx";
 
 const App = () => {
     const [user, setUser] = useState({});
@@ -30,19 +30,19 @@ const App = () => {
     return(
         <Router>
             <div className="App">
-                <NavBar user={user} />
+              <NavBar user={user} />
               <Switch>
                 <Route
                   path ='/'
                   exact
-                  render = {() => {
+                  render = {props => {
                       if (!user.email){
                         return <Redirect to ="/login"/>
                     }}}
                 />
                 <Route path="/Login" component={Login} />
-                {/* <Route path="/FriendsList" component={FriendsList} /> */}
                 <Route path="/Profile" component={Profile} />
+                <Route path="/FriendsList" component={FriendsList} />
                 <Route path="/Register" component={Register} />
                 <Route path="/Forum" component={Forum} />
                 <Route path="/Logout" component={Logout} />
