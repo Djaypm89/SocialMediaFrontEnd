@@ -38,7 +38,7 @@ const Profile = (props)  => {
                 <main>
                     <span>
                         <img></img>
-                        <Bio currentUser={currentUser}/>
+                        <Bio />
                     </span>
                     <span>
                         <button>View Posts</button>
