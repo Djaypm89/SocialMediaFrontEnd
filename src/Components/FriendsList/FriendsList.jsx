@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
-// import { Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import jwtDecode from "jwt-decode";
 import axios from "axios";
+import './FriendList.css';
 
 const FriendsList = (props) => {
-    const [currentUser, setCurrentUser] = useState();
     const [userId, setUserId] = useState();
     const [friends, setFriends] = useState();
+    const [friendNames, setFriendNames] = useState();
 
     useEffect(() => { getUserFromToken() } );
     useEffect(() => { getUserById() }, [userId] );
+    useEffect(() => { listOfFriends() }, [friends] );
 
     const getUserFromToken = async () => {
         const jwt = localStorage.getItem('token');
@@ -25,40 +27,46 @@ const FriendsList = (props) => {
         let id = userId
         try {
             let response = await axios.get(`http://localhost:5000/api/user/${id}`);
-            setCurrentUser(response.data);
             setFriends(response.data.friends)
             console.log(response.data)
         } catch (error) {
-            console.log(`Couldn't Retrieve Token! ${error}`);
+            console.log(error);
         }
     }
 
-    // const getUserById = async (friend) => {
-    //     try {
-    //         let response = await axios.get(`http://localhost:5000/api/user/${friend}`);
-            
-    //             response : friend
-    
-    //     } catch (error) {
-    //         console.log(`Couldn't Retrieve Token! ${error}`);
-    //     }
-    // }
-
-
-    // const listOfFriends = friends.map((friend, id) => {
-    //     return (
-    //         <div>
-    //             <Card {friend.id}/>
-    //         </div>
-    //     )
-        
-    // }
-    return(
-        <div className="friend-wrapper">
-            hi
-        </div>
-    );
-    
+    const listOfFriends = async () => {
+        let list = friends
+        let friendArray = []
+        try{
+            for(let i of list){
+                let response = await axios.get(`http://localhost:5000/api/user/${i}`);
+                friendArray.push(response.data.name);
+            }
+            setFriendNames(friendArray);
+            console.log(friendArray)
+        }catch(error){
+            console.log(error);
+        }
+    }
+    if(!friendNames)
+        return(
+            <h1>No friends sowwy</h1>
+        )
+    else{
+        return(
+            <div className="friend-card">
+                <center>
+                <h1>Friends List:</h1>
+                {listOfFriends}
+                {friendNames.map((friend, id) => {
+                    return (
+                        <h3>{friend}</h3>
+                    )
+                })}
+                </center>
+            </div>
+        );
+    }
 }
 
 

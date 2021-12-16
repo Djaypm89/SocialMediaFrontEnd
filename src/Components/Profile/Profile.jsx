@@ -43,6 +43,9 @@ const Profile = (props)  => {
                     <span>
                         <button>View Posts</button>
                     </span>
+                    <span>
+                        <button>View Friend Requests</button>
+                    </span>
                 </main>
             </div>
         );
