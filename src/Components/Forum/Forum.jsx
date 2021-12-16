@@ -1,12 +1,13 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import jwtDecode from "jwt-decode";
-// import Post from "../Post/Post";
+import Post from "../Post/Post";
 
 
 // need 2 filter options (by user and by friends)
 const Forum = (props) => {
     const [userId, setUserId] = useState("");
+    const [userPosts, setUserPosts] = useState([]);
 
     useEffect(() => {getToken()}, []);
        
@@ -25,7 +26,7 @@ const Forum = (props) => {
         let id = userId;
         try {
             let response = await axios.get(`http://localhost:5000/api/post/${id}`); 
-            // let response = await axios.get('http://localhost:5000/api/post/:id', { userId: id}); 
+                setUserPosts(response.data)
             console.log(response)
         } catch (error) {
             console.log("Couldn't POST post to Database!");
@@ -33,11 +34,17 @@ const Forum = (props) => {
     }
         
 
-
-
       return (
         <div>
             <button onClick={getMyPosts}>Get Posts</button>
+            <Post />
+            {userPosts.map(post => {
+                return (
+                    <h1>
+                        {post.postBody}
+                    </h1>
+                );
+            })   }
             
         </div>
       );
