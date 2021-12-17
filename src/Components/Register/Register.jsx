@@ -16,7 +16,7 @@ const Register = (props) => {
         }else if(event.target.name === "password"){
             setPassword(event.target.value);
         }else if(event.target.name === "isAdmin"){
-            setIsAdmin("checked");
+            setIsAdmin(true);
         }
     }
 
@@ -36,6 +36,7 @@ const Register = (props) => {
         try {
             let response = await axios.post("http://localhost:5000/api/user/register", user);
             console.log(response);
+            window.location = '/Login';
         } catch (error) {
             console.log("Couldn't Register User");
         }
@@ -55,16 +56,16 @@ const Register = (props) => {
                     </div>
                     <div className="form-group">
                         <label>Username</label>
-                        <input type="text" name="username" className="form-control" placeholder="Username" onChange={handleChange}/>
+                        <input type="text" name="name" className="form-control" placeholder="Username" onChange={handleChange}/>
                     </div>
                     <div className="form-group">
                         <label>Password</label>
-                        <input type="text" name="password" className="form-control" placeholder="********" onChange={handleChange} />
+                        <input type="password" name="password" className="form-control" placeholder="********" onChange={handleChange} />
                     </div>
-                    {/* <div className="form-check">
+                    <div className="form-check">
                     <label className="form-check-label" htmlFor="flexCheckDefault">Admin</label>
                         <input type="checkbox" name="isAdmin" className="form-check-input" id="flexCheckDefault" onChange={handleChange}/>
-                    </div> */}
+                    </div>
                     <p className="forgot-password text-right">
                         Already registered <a href="/Login">sign in?</a>
                     <center>
