@@ -8,10 +8,10 @@ const NavBar = ({user}) => {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
             {!user.email &&
-            <Link className="navbar-brand" to={"/"}>gamerGarden </Link>
+            <Link className="navbar-brand" to={"/"}>gamer Garden </Link>
             }
             {user.email &&
-            <Link className="navbar-brand" to={"/Forum"}>gamerGarden</Link>
+            <Link className="navbar-brand" to={"/Forum"}>gamer Garden</Link>
             }
             <ul className="navbar-nav me-auto">
             {user.email &&
