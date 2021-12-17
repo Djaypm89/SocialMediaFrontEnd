@@ -101,6 +101,20 @@ const Forum = (props) => {
         setViewUserPost(false);
     }
 
+    /* Likes the Post and Updates the Database. */
+    const likePost = async (event) => {
+        let id = event.target.name;
+        let currentLikes = parseInt(event.target.value) + 1;
+        try {
+            let response = await axios.put(`http://localhost:5000/api/post/${id}`, { like: currentLikes });
+            getMyPosts();
+            getFriendsPosts();
+        } catch (error) {
+            console.log("Couldn't Update Likes!");
+        }
+    }
+
+    /* Deletes User's Post */
     const deletePost = async (event) => {
         let postId = event.target.name;
         try {
@@ -125,6 +139,7 @@ const Forum = (props) => {
                         <div key={post._id}>
                             <h3>User: {post.name}</h3>
                             <h3>Post: {post.postBody}</h3>
+                            <button name={post._id} value={post.like} onClick={likePost}>Likes: {post.like}</button>
                             <button name={post._id} onClick={deletePost}>Delete Post</button>
                         </div>
                     );
