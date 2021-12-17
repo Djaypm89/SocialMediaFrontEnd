@@ -31,6 +31,7 @@ const Post = (props) => {
     const handlePost = (event) => {
         event.preventDefault();
         postPost();
+        alert("Post Created!");
        
     }
 // 5. runs axios which pulls userId and postBody from state above, and sends to backEnd. 

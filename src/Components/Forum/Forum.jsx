@@ -113,9 +113,10 @@ const Forum = (props) => {
                 </div>
                 {userPosts.map(post => {
                     return (
-                        <h1>
-                            {post.postBody}
-                        </h1>
+                        <div>
+                            <h3>User: {post.name}</h3>
+                            <h3>Post: {post.postBody}</h3>
+                        </div>
                     );
                 })}
             </div>
@@ -154,22 +155,6 @@ const Forum = (props) => {
             </div>
         );
     }
-    
-
-    /* return (
-        <div>
-            <button onClick={getMyPosts}>Get Posts</button>
-            <Post />
-            <button>Get Friends Posts</button>
-            {userPosts.map(post => {
-                return (
-                    <h1>
-                        {post.postBody}
-                    </h1>
-                );
-            })}
-        </div>
-    ); */
 }   
 
 export default Forum;
