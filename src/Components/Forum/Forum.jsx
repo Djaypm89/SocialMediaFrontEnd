@@ -32,12 +32,22 @@ const Forum = (props) => {
         }
     }
 
+    /* Sorts Array in Chronological Order */
+    const sortArray = (array) => {
+        array.sort((a, b) => {
+            return b.timeStamp - a.timeStamp;
+        });
+        return array;
+    }
+
     /* Retrieves the Current Logged in User's Post and 
     Saves it into State. */
     const getMyPosts = async () => {
         let id = userId;
         try {
-            let response = await axios.get(`http://localhost:5000/api/post/${id}`); 
+            let response = await axios.get(`http://localhost:5000/api/post/${id}`);
+            let postArray = response.data;
+            postArray = sortArray(postArray); 
             setUserPosts(response.data);
         } catch (error) {
             console.log("Couldn't POST post to Database!");
@@ -66,6 +76,8 @@ const Forum = (props) => {
                 let response = await axios.get(`http://localhost:5000/api/post/${id}`);
                 postsArray = postsArray.concat(response.data);
             }
+            postsArray = sortArray(postsArray);
+            console.log(postsArray);
             setFriendsPosts(postsArray);
         }catch (error) {
             console.log("Couldn't retrive friends list");
