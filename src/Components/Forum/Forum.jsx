@@ -18,7 +18,6 @@ const Forum = (props) => {
     /* Use Effects */
     useEffect(() => {getToken()}, []);
     useEffect(() => {getFriendsList()}, [userId]);
-    useEffect(() => {getFriendsPosts()}, [friendsList]);
     
     /* Extracts the Current Logged in User's ID from the 
     Token Saved in Brower Storage and Saves the ID in State. */
@@ -39,8 +38,7 @@ const Forum = (props) => {
         let id = userId;
         try {
             let response = await axios.get(`http://localhost:5000/api/post/${id}`); 
-                setUserPosts(response.data)
-            console.log(response)
+            setUserPosts(response.data);
         } catch (error) {
             console.log("Couldn't POST post to Database!");
         }
@@ -53,7 +51,6 @@ const Forum = (props) => {
         try {
             let response = await axios.get(`http://localhost:5000/api/user/${id}`);
                 setFriendsList(response.data.friends)
-                console.log(response.data.friends)
         }catch (error) {
             console.log("Couldn't retrive friends list");
         }
@@ -92,6 +89,7 @@ const Forum = (props) => {
         setViewFriendPost(true);
         setViewUserPost(false);
         setCreatePost(false);
+        getFriendsPosts();
     }
 
     /* Sets createPost to True and 
@@ -101,6 +99,17 @@ const Forum = (props) => {
         setCreatePost(true);
         setViewFriendPost(false);
         setViewUserPost(false);
+    }
+
+    const deletePost = async (event) => {
+        let postId = event.target.name;
+        try {
+            let response = await axios.delete(`http://localhost:5000/api/post/${postId}`);
+            getMyPosts();
+            alert("Post Deleted!");
+        } catch (error) {
+            console.log("Couldn't Delete User's Post!");
+        }
     }
 
     if(viewUserPost){
@@ -113,9 +122,10 @@ const Forum = (props) => {
                 </div>
                 {userPosts.map(post => {
                     return (
-                        <div>
+                        <div key={post._id}>
                             <h3>User: {post.name}</h3>
                             <h3>Post: {post.postBody}</h3>
+                            <button name={post._id} onClick={deletePost}>Delete Post</button>
                         </div>
                     );
                 })}
@@ -131,7 +141,7 @@ const Forum = (props) => {
                 </div>
                 {friendsPosts.map(post => {
                     return (
-                        <div>
+                        <div key={post._id}>
                             <h3>User: {post.name}</h3>
                             <h3>Post: {post.postBody}</h3>
                         </div>
