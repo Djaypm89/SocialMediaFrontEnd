@@ -13,6 +13,7 @@ const Forum = (props) => {
     const [friendsPosts, setFriendsPosts] = useState([]);
     const [viewUserPost, setViewUserPost] = useState(false);
     const [viewFriendPost, setViewFriendPost] = useState(false);
+    const [createPost, setCreatePost] = useState(false);
 
     /* Use Effects */
     useEffect(() => {getToken()}, []);
@@ -75,19 +76,31 @@ const Forum = (props) => {
     }
 
     /* Sets viewUserPost to True and
-    viewFriendPost to False */
+    viewFriendPost to False and
+    createPost to False*/
     const handleUserPost = () => {
         setViewUserPost(true);
         setViewFriendPost(false);
-        console.log(viewUserPost, viewFriendPost);
+        setCreatePost(false);
+        getMyPosts();
     }
 
     /* Sets viewUserPost to False and
-    viewFriendPost to True */
+    viewFriendPost to True and
+    createPost to False */
     const handleFriendPost = () => {
         setViewFriendPost(true);
         setViewUserPost(false);
-        console.log(viewUserPost, viewFriendPost);
+        setCreatePost(false);
+    }
+
+    /* Sets createPost to True and 
+    viewUserPost to False and
+    viewFriendPost to False */
+    const handleCreatePost = () => {
+        setCreatePost(true);
+        setViewFriendPost(false);
+        setViewUserPost(false);
     }
 
     if(viewUserPost){
@@ -96,8 +109,15 @@ const Forum = (props) => {
                 <div>
                     <button onClick={handleUserPost}>View User's Posts</button>
                     <button onClick={handleFriendPost}>View Friend's Posts</button>
+                    <button onClick={handleCreatePost}>Create Post</button>
                 </div>
-
+                {userPosts.map(post => {
+                    return (
+                        <h1>
+                            {post.postBody}
+                        </h1>
+                    );
+                })}
             </div>
         );
     }else if(viewFriendPost){
@@ -106,8 +126,20 @@ const Forum = (props) => {
                 <div>
                     <button onClick={handleUserPost}>View User's Posts</button>
                     <button onClick={handleFriendPost}>View Friend's Posts</button>
+                    <button onClick={handleCreatePost}>Create Post</button>
                 </div>
 
+            </div>
+        );
+    }else if(createPost){
+        return(
+            <div>
+                <div>
+                    <button onClick={handleUserPost}>View User's Posts</button>
+                    <button onClick={handleFriendPost}>View Friend's Posts</button>
+                    <button onClick={handleCreatePost}>Create Post</button>
+                </div>
+                <Post />
             </div>
         );
     }else{
@@ -116,6 +148,7 @@ const Forum = (props) => {
                 <div>
                     <button onClick={handleUserPost}>View User's Posts</button>
                     <button onClick={handleFriendPost}>View Friend's Posts</button>
+                    <button onClick={handleCreatePost}>Create Post</button>
                 </div>
 
             </div>

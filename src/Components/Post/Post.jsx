@@ -6,6 +6,7 @@ import jwtDecode from "jwt-decode";
 const Post = (props) => {
     const [post, setPost] = useState("");
     const [userId, setUserId] = useState("");
+    const [userName, setUserName] = useState("");
     // 1. runs as soon as page is rendered
     useEffect(() => {getToken()}, []);
 
@@ -16,6 +17,7 @@ const Post = (props) => {
               let currentUser = jwtDecode(jwt);
               console.log(currentUser);
               setUserId(currentUser._id);
+              setUserName(currentUser.name);
           }catch(error){
               console.log(error)
             }
@@ -35,8 +37,17 @@ const Post = (props) => {
     const postPost = async () => {
         let id = userId;
         let postBody = post;
+        let name = userName;
+        let time = Date.now();
         try {
-            let response = await axios.post('http://localhost:5000/api/post', { userId: id, postBody: postBody });
+            let response = await axios.post('http://localhost:5000/api/post', 
+                { 
+                    userId: id,
+                    name: name,
+                    postBody: postBody,
+                    timeStamp: time
+                }
+            );
             console.log(response.data);
             console.log(id);
         } catch (error) {
