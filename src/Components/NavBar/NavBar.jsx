@@ -5,7 +5,7 @@ import './NavBar.css'
 const NavBar = ({user}) => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
             {!user.email &&
             <Link className="navbar-brand" to={"/"}>Social Media Placeholder</Link>
