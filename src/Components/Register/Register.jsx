@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import "./Register.css"
 
 const Register = (props) => {
     const [userEmail, setEmail] = useState("");
@@ -41,17 +42,40 @@ const Register = (props) => {
     }
 
     return(
-        <form onSubmit={handleSubmit}>
-            <label for="myInput">Email</label>
-            <input type="text" name="email" onChange={handleChange}></input>
-            <label for="myInput">Username</label>
-            <input type="text" name="name" onChange={handleChange}></input>
-            <label for="myInput">Password</label>
-            <input type="text" name="password" onChange={handleChange}></input>
-            <input type="checkbox" name="isAdmin"></input>
-            <label for="myInput">admin</label>
-            <button type="submit">Submit</button>
-        </form>
+        <div className="signUpContainer">
+        <div className="card">
+            <div className="card-body">
+                <form onSubmit={handleSubmit}>
+                    <center>
+                    <h3>Sign Up</h3>
+                    </center>
+                    <div className="form-group">
+                        <label>Email</label>
+                        <input type="text" name="email" className="form-control" placeholder="Email" onChange={handleChange}/>
+                    </div>
+                    <div className="form-group">
+                        <label>Username</label>
+                        <input type="text" name="username" className="form-control" placeholder="Username" onChange={handleChange}/>
+                    </div>
+                    <div className="form-group">
+                        <label>Password</label>
+                        <input type="text" name="password" className="form-control" placeholder="********" onChange={handleChange} />
+                    </div>
+                    {/* <div className="form-check">
+                    <label className="form-check-label" htmlFor="flexCheckDefault">Admin</label>
+                        <input type="checkbox" name="isAdmin" className="form-check-input" id="flexCheckDefault" onChange={handleChange}/>
+                    </div> */}
+                    <p className="forgot-password text-right">
+                        Already registered <a href="/Login">sign in?</a>
+                    <center>
+                    <button type="submit" className="btn btn-dark">Sign Up</button>
+                    </center>
+                    </p>
+                </form>
+            </div>
+        </div>
+  </div>
+
     );
 }
 
