@@ -39,24 +39,24 @@ const Login = (props) => {
 
     return(
         <div className="loginContainer">
-            <div className="card mb-3">
+            <div className="card">
                 <div className="card-body">
-                <form onSubmit={handleSubmit}>
-                    <center>
-                    <h3>Login</h3>
-                    </center>
-                    <div className="form-group">
-                    <label>Email </label><br></br>
-                    <input type="text" name="email" onChange={handleEmail}/>
-                    </div>
-                    <div className="form-group">
-                    <label>Password </label><br></br>
-                    <input type="password" name="password" onChange={handlePassword}/>
-                    </div>
-                    <center>
-                    <button type="submit">Submit</button>
-                    </center>
-                </form>
+                    <form onSubmit={handleSubmit}>
+                        <center>
+                        <h3>Login</h3>
+                        </center>
+                        <div className="form-group">
+                            <label>Email </label><br></br>
+                            <input type="text" name="email" placeholder="Email" className="form-control" onChange={handleEmail}/>
+                        </div>
+                        <div className="form-group">
+                            <label>Password </label><br></br>
+                            <input type="password" name="password" placeholder="********" className="form-control" onChange={handlePassword}/>
+                        </div>
+                        <center>
+                        <button type="submit" className="btn btn-dark">Submit</button>
+                        </center>
+                    </form>
                 </div>
             </div>
         </div>
