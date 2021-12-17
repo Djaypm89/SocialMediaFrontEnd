@@ -159,6 +159,7 @@ const Forum = (props) => {
                         <div key={post._id}>
                             <h3>User: {post.name}</h3>
                             <h3>Post: {post.postBody}</h3>
+                            <button name={post._id} value={post.like} onClick={likePost}>Likes: {post.like}</button>
                         </div>
                     );
                 })}
@@ -183,7 +184,6 @@ const Forum = (props) => {
                     <button onClick={handleFriendPost}>View Friend's Posts</button>
                     <button onClick={handleCreatePost}>Create Post</button>
                 </div>
-
             </div>
         );
     }
