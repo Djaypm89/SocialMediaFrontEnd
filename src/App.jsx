@@ -9,7 +9,7 @@ import Profile from "./Components/Profile/Profile";
 import Forum from "./Components/Forum/Forum.jsx";
 import FriendsList from "./Components/FriendsList/FriendsList.jsx";
 import FriendsRequest from "./Components/FriendRequest/FriendRequest.jsx";
-import "../src/App.css"
+
 
 const App = () => {
     const [user, setUser] = useState({});
