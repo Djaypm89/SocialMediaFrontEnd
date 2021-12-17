@@ -129,7 +129,14 @@ const Forum = (props) => {
                     <button onClick={handleFriendPost}>View Friend's Posts</button>
                     <button onClick={handleCreatePost}>Create Post</button>
                 </div>
-
+                {friendsPosts.map(post => {
+                    return (
+                        <div>
+                            <h3>User: {post.name}</h3>
+                            <h3>Post: {post.postBody}</h3>
+                        </div>
+                    );
+                })}
             </div>
         );
     }else if(createPost){
