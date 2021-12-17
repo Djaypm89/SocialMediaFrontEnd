@@ -8,6 +8,7 @@ import Logout from "./Components/Logout/Logout.jsx";
 import Profile from "./Components/Profile/Profile";
 import Forum from "./Components/Forum/Forum.jsx";
 import FriendsList from "./Components/FriendsList/FriendsList.jsx";
+import FriendsRequest from "./Components/FriendRequest/FriendRequest.jsx";
 
 const App = () => {
     const [user, setUser] = useState({});
@@ -45,6 +46,7 @@ const App = () => {
                 <Route path="/FriendsList" component={FriendsList} />
                 <Route path="/Register" component={Register} />
                 <Route path="/Forum" component={Forum} />
+                <Route path="/FriendsRequest" component={FriendsRequest} />
                 <Route path="/Logout" component={Logout} />
               </Switch>
           </div>

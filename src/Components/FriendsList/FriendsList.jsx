@@ -7,7 +7,6 @@ import './FriendList.css';
 const FriendsList = (props) => {
     const [userId, setUserId] = useState();
     const [friends, setFriends] = useState();
-    const [friendNames, setFriendNames] = useState();
 
     useEffect(() => { getUserFromToken() } );
     useEffect(() => { getUserById() }, [userId] );
@@ -40,15 +39,15 @@ const FriendsList = (props) => {
         try{
             for(let i of list){
                 let response = await axios.get(`http://localhost:5000/api/user/${i}`);
-                friendArray.push(response.data.name);
+                friendArray.push(response.data);
             }
-            setFriendNames(friendArray);
+            setFriends(friendArray);
             console.log(friendArray)
         }catch(error){
             console.log(error);
         }
     }
-    if(!friendNames)
+    if(!friends)
         return(
             <h1>No friends sowwy</h1>
         )
@@ -58,11 +57,14 @@ const FriendsList = (props) => {
                 <center>
                 <h1>Friends List:</h1>
                 {listOfFriends}
-                {friendNames.map((friend, id) => {
+                {friends.map((friend => {
                     return (
-                        <h3>{friend}</h3>
+                        <div key={friend._id}>
+                            <h3>{friend.name}</h3>
+                            <h3>{friend.bio}</h3>
+                        </div>
                     )
-                })}
+                }))}
                 </center>
             </div>
         );

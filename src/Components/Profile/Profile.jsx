@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import jwtDecode from "jwt-decode";
+import { Link } from "react-router-dom";
 import Bio from "./Bio";
 
 const Profile = (props)  => {
@@ -44,6 +45,7 @@ const Profile = (props)  => {
                         <button>View Posts</button>
                     </span>
                     <span>
+                        <Link to={"/FriendsRequest"}>View Friend Requests</Link>
                         <button>View Friend Requests</button>
                     </span>
                 </main>
