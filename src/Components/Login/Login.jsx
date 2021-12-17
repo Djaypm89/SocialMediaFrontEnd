@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "../Login/Login.css"
 
 const Login = (props) => {
     const [currentEmail, setEmail] = useState("");
@@ -37,20 +38,31 @@ const Login = (props) => {
     }
 
     return(
-        <form onSubmit={handleSubmit}>
-            <input 
-                type="text" 
-                name="email" 
-                onChange={handleEmail}>
-            </input>
-            <input 
-                type="password" 
-                name="password" 
-                onChange={handlePassword}>
-            </input>
-            <button type="submit">Submit</button>
-        </form>
+        <div className="loginContainer">
+        <div className="card mb-3">
+            <div className="card-body">
+            <form onSubmit={handleSubmit}>
+                <center>
+                <h3>Login</h3>
+                </center>
+                <div className="form-group">
+                <label>Email </label><br></br>
+                <input type="text" name="email" onChange={handleEmail}/>
+                </div>
+                <div className="form-group">
+                <label>Password </label><br></br>
+                <input type="password" name="password" onChange={handlePassword}/>
+                </div>
+                <center>
+                <button type="submit">Submit</button>
+                </center>
+            </form>
+            </div>
+        </div>
+    </div>
     );
 }
+
+
 
 export default Login;

@@ -42,10 +42,14 @@ const Register = (props) => {
 
     return(
         <form onSubmit={handleSubmit}>
+            <label for="myInput">Email</label>
             <input type="text" name="email" onChange={handleChange}></input>
+            <label for="myInput">Username</label>
             <input type="text" name="name" onChange={handleChange}></input>
+            <label for="myInput">Password</label>
             <input type="text" name="password" onChange={handleChange}></input>
             <input type="checkbox" name="isAdmin"></input>
+            <label for="myInput">admin</label>
             <button type="submit">Submit</button>
         </form>
     );
