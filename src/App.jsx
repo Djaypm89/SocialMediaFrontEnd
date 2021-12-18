@@ -9,7 +9,7 @@ import Profile from "./Components/Profile/Profile";
 import Forum from "./Components/Forum/Forum.jsx";
 import FriendsList from "./Components/FriendsList/FriendsList.jsx";
 import FriendsRequest from "./Components/FriendRequest/FriendRequest.jsx";
-
+import SearchBar from "./Components/SeachBar/SearchBar.jsx";
 
 const App = () => {
     const [user, setUser] = useState({});
@@ -43,6 +43,7 @@ const App = () => {
                     }}}
                 />
                 <Route path="/Login" component={Login} />
+                <Route path="/SearchBar" component={SearchBar}/>
                 <Route path="/Profile" component={Profile} />
                 <Route path="/FriendsList" component={FriendsList} />
                 <Route path="/Register" component={Register} />

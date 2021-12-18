@@ -24,7 +24,7 @@ const FriendsRequest = (props) => {
     const getReceivedRequests = async () => {
         const jwt = localStorage.getItem('token');
         try {
-            let response = await axios.get(`http://localhost:5000/api/users/request/recieved/`, { headers: { 'x-auth-token': jwt}});
+            let response = await axios.get(`http://localhost:5000/api/users/request/recieved/`, { test: "Blank"}, { headers: { 'x-auth-token': jwt}});
             if (response.data.status === 'PENDING')
                 setReceived(response.data)
                 console.log(response.data)

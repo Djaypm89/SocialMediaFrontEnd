@@ -20,6 +20,9 @@ const NavBar = ({user}) => {
             {user.email &&
                 <div >
                     <li className="nav-item">
+                        <Link className="nav-link" to={"/SearchBar"}>Search Bar</Link>
+                    </li>
+                    <li className="nav-item">
                         <Link className="nav-link" to={"/Forum"}>Forum</Link>
                     </li>
                     <li className="nav-item">

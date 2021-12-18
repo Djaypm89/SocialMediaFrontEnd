@@ -1,4 +1,4 @@
-/* li {
+li {
     display: inline-block;
     padding-inline-end: 10px;
 }
@@ -6,7 +6,7 @@
     position: sticky;
     top: 0;
 }
- */
+
 
  .navigation-bar {
     width: 100%;  /* i'm assuming full width */
