@@ -20,7 +20,7 @@ const NavBar = ({user}) => {
             {user.email &&
                 <div >
                     <li className="nav-item">
-                        <Link className="nav-link" to={"/SearchBar"}>Search Bar</Link>
+                        <Link className="nav-link" to={"/SearchBar"}>Search</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to={"/Forum"}>Forum</Link>
