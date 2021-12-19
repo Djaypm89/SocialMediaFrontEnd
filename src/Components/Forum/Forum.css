@@ -1,0 +1,21 @@
+.forum-nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 60vw;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    padding: 1%;
+}
+
+.forum{
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80vw;
+    padding: 2%;
+    margin-top: 3vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+}

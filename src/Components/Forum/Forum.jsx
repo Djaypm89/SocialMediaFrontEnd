@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import jwtDecode from "jwt-decode";
 import Post from "../Post/Post";
-import FriendsList from "../FriendsList/FriendsList";
+import "./Forum.css";
 
 const Forum = (props) => {
     /* State Hooks */
@@ -141,18 +141,18 @@ const Forum = (props) => {
     if(viewUserPost){
         return(
             <div>
-                <div>
+                <div className="forum-nav">
                     <button onClick={handleUserPost}>View User's Posts</button>
                     <button onClick={handleFriendPost}>View Friend's Posts</button>
                     <button onClick={handleCreatePost}>Create Post</button>
                 </div>
                 {userPosts.map(post => {
                     return (
-                        <div key={post._id}>
+                        <div key={post._id} className="forum">
                             <h3>User: {post.name}</h3>
                             <h3>Post: {post.postBody}</h3>
                             <button name={post._id} value={post.like} onClick={likePost}>Likes: {post.like}</button>
-                            <button name={post._id} onClick={deletePost}>Delete Post</button>
+                            <button name={post._id} onClick={deletePost}>X</button>
                         </div>
                     );
                 })}
@@ -161,14 +161,14 @@ const Forum = (props) => {
     }else if(viewFriendPost){
         return(
             <div>
-                <div>
+                <div className="forum-nav">
                     <button onClick={handleUserPost}>View User's Posts</button>
                     <button onClick={handleFriendPost}>View Friend's Posts</button>
                     <button onClick={handleCreatePost}>Create Post</button>
                 </div>
                 {friendsPosts.map(post => {
                     return (
-                        <div key={post._id}>
+                        <div key={post._id} className="forum">
                             <h3>User: {post.name}</h3>
                             <h3>Post: {post.postBody}</h3>
                             <button name={post._id} value={post.like} onClick={likePost}>Likes: {post.like}</button>
@@ -180,7 +180,7 @@ const Forum = (props) => {
     }else if(createPost){
         return(
             <div>
-                <div>
+                <div className="forum-nav">
                     <button onClick={handleUserPost}>View User's Posts</button>
                     <button onClick={handleFriendPost}>View Friend's Posts</button>
                     <button onClick={handleCreatePost}>Create Post</button>

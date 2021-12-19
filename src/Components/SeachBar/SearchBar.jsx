@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect} from "react";
 import jwtDecode from "jwt-decode";
+import "./SearchBar.css";
 
 const SearchBar = () => {
     const [userId, setUserId] = useState("");
@@ -53,7 +54,7 @@ const SearchBar = () => {
     /* FILTER HELPER FUNC:
     Checks User's for Friends and Filters Them Out. */
     const checkForFriends = (user, friends) => {
-        if(user !== null && friends !== null){
+        if(user !== undefined && friends !== undefined){
             let newListUsers = user.filter(user => {
                 if(friends.includes(user._id)){
                     return false;
@@ -62,6 +63,8 @@ const SearchBar = () => {
                 }
             });
             return newListUsers;
+        }else{
+            return [];
         }
     }
 
@@ -71,7 +74,9 @@ const SearchBar = () => {
         let user = [];
         let friends = [];
         let newUsers = [];
-        if(userInfo){
+        if(userInfo === undefined){
+            getUserInfo();
+        }else if(userInfo){
             let id = userId;
             let user = allUsers;
             let friends = userInfo.friends;
@@ -99,22 +104,23 @@ const SearchBar = () => {
             let response = await axios.post(`http://localhost:5000/api/users/request/${requestee}`, {}, 
                 { headers: { 'x-auth-token': jwt} }
             );
-            console.log(response);
         } catch (error) {
             console.log("Couldn't Send Friend Request!");
         }
     } 
 
-    if(!filtered){
+    if(filtered === undefined || filtered === []){
         return(
-            <button onClick={filterUsers}>Show All Users</button>
+            <div className="searchBar-cont-button">
+                <button onClick={filterUsers}>Show All Users</button>
+            </div>
         );
     }else if(filtered){
         return(
             <div>
                 {filtered.map(user => {
                     return(
-                        <div key={user._id}>
+                        <div key={user._id} className="searchBar-cont">
                             <h3>{user.name}</h3>
                             <button name={user._id} onClick={sentFriendRequest}>Add Friend</button>
                         </div>

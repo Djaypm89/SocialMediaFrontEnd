@@ -6,7 +6,7 @@ const NavBar = ({user}) => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light"> 
-      <a class="navbar-brand" href="/">
+      <a className="navbar-brand" href="/">
         <img id="logo" alt="Logo" src="../gg.jpg" width="175" height="100" />
     </a>
         <div className="container-fluid">

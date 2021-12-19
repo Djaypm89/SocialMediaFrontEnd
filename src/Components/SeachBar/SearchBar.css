@@ -1,0 +1,25 @@
+.searchBar-cont{
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 40vw;
+    padding: 2%;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    margin-left: 30vw;
+    margin-right: 30vw;
+    font-size: 15px;
+}
+
+.searchBar-cont-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 40vw;
+    padding: 2%;
+    margin-top: 10vh;
+    margin-bottom: 2vh;
+    margin-left: 30vw;
+    margin-right: 30vw;
+}
