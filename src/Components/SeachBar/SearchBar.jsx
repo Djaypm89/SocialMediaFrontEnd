@@ -36,7 +36,7 @@ const SearchBar = () => {
     }
 
     /* FILTER HELPER FUNC:
-    Filters Current Loggin User */
+    Checks User's for Current Loggin In User */
     const checkForUser = (user, id) => {
         if(user !== null & id !== null){
             let newListUsers = user.filter(user => {
@@ -50,6 +50,8 @@ const SearchBar = () => {
         }
     }
 
+    /* FILTER HELPER FUNC:
+    Checks User's for Friends and Filters Them Out. */
     const checkForFriends = (user, friends) => {
         if(user !== null && friends !== null){
             let newListUsers = user.filter(user => {
@@ -63,6 +65,7 @@ const SearchBar = () => {
         }
     }
 
+    /* Filters Through User's */
     const filterUsers = () => {
         let id = "";
         let user = [];
@@ -75,10 +78,10 @@ const SearchBar = () => {
             newUsers = checkForUser(user, id);
             newUsers = checkForFriends(newUsers, friends);
             setFiltered(newUsers);
-            console.log(newUsers);
         }
     }
 
+    /* Gets All User's from Database */
     const getAllUsers = async () => {
         try {
             let response = await axios.get("http://localhost:5000/api/user");
