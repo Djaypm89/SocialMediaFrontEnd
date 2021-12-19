@@ -41,7 +41,11 @@ const Profile = (props)  => {
                         <Bio />
                     </span>
                     <span>
-                        <Link to={"/FriendsRequest"} className="link">View Friend Requests</Link>
+                        <Link to={"/FriendsRequest"} className="link">
+                            <button>
+                            View Friend Requests
+                            </button>
+                        </Link>
                     </span>
                 </main>
             </div>

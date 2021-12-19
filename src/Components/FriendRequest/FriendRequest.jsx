@@ -1,63 +1,80 @@
 import React, { useEffect, useState } from "react";
-import jwtDecode from "jwt-decode";
 import axios from "axios";
 
 const FriendsRequest = (props) => {
-    const [userId, setUserId] = useState();
     const [received, setReceived] = useState();
-    const [sent, setSent] = useState();
+    const [requestors, setRequestors] = useState();
 
-    useEffect(() => { getUserFromToken() } );
-    useEffect(() => { getReceivedRequests() }, [userId] );
-    useEffect(() => { getSentRequests() }, [userId] );
-
-    const getUserFromToken = async () => {
-        const jwt = localStorage.getItem('token');
-        try {
-            let user = jwtDecode(jwt);
-            setUserId(user._id)
-        } catch (ex) {
-            console.log(`User not found..${ex}`);
-        }
-    }
+    useEffect(() => { getReceivedRequests() },);
 
     const getReceivedRequests = async () => {
         const jwt = localStorage.getItem('token');
         try {
-            let response = await axios.get(`http://localhost:5000/api/users/request/recieved/`, { test: "Blank"}, { headers: { 'x-auth-token': jwt}});
-            if (response.data.status === 'PENDING')
-                setReceived(response.data)
-                console.log(response.data)
+            let response = await axios.get(`http://localhost:5000/api/users/request/recieved/`, { headers: { 'x-auth-token': jwt}});
+            setReceived(response.data)
         } catch (error) {
             console.log(error);
         }
     }
 
-    const getSentRequests = async () => {
-        const jwt = localStorage.getItem('token');
+    const filterRequests = (request) => {
+        let filteredList = []
+        if (request) {
+            request.filter( function(req){
+                req.status.includes("PENDING")
+                return (
+                    filteredList.push(req.requestor)
+                )
+            }
+            )
+        }else{
+            console.log("no dice")
+        }
+        getUserById(filteredList)
+    }
+
+    const getUserById = async (request) => {
+        let requestorArray = []
         try {
-            let response = await axios.get(`http://localhost:5000/api/users/request/sent/`, { headers: { 'x-auth-token': jwt}});
-            if (response.data.status === 'PENDING' || 'ACCEPTED')
-                setSent(response.data)
-                console.log(response.data)
+            for(let i of request){
+                let response = await axios.get(`http://localhost:5000/api/user/${i}`);
+                requestorArray.push(response.data.name);
+            }
+            setRequestors(requestorArray)
+            console.log(requestorArray)
         } catch (error) {
             console.log(error);
         }
     }
 
-    if(!received || !sent)
+    if(received === undefined || received === [])
         return(
-            <h1>No requests sowwy</h1>
+            <h1>No sent requests sowwy</h1>
         )
     else{
         return(
-            <div className="request-card">
+            <div>
                 <center>
-                <h1>Pending Requests:</h1>
+                <p>You have {received.length} pending requests</p>
+                    <p>Pending Requests:</p>
+                    <button onClick={() => filterRequests(received)}>View Sent Requests</button>
+                    {requestors &&
+                        <div>
+                            {requestors.map((names) => {
+                                return (
+                                    <div key={names}>
+                                        <h3>{names}</h3>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    
+                    }
                 </center>
             </div>
         );
     }
+
 }
 
 

@@ -60,8 +60,8 @@ const FriendsList = (props) => {
                 {friends.map((friend => {
                     return (
                         <div key={friend._id}>
-                            <h3>{friend.name}</h3>
-                            <h3>{friend.bio}</h3>
+                            <h3>Name: {friend.name}</h3>
+                            <h3>Bio: {friend.bio}</h3>
                         </div>
                     )
                 }))}
