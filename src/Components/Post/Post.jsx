@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import jwtDecode from "jwt-decode";
-//import "./Post.css";
+import "./Post.css";
 
 const Post = (props) => {
     const [post, setPost] = useState("");
@@ -49,8 +49,6 @@ const Post = (props) => {
                     timeStamp: time
                 }
             );
-            console.log(response.data);
-            console.log(id);
         } catch (error) {
             console.log("Couldn't POST post to Database!");
         }
@@ -58,10 +56,10 @@ const Post = (props) => {
     
     
     return (
-        <div className="post">
+        <div className="post" className="post-cont">
             <form onSubmit={handlePost}>
                 <label>
-                    Add Post
+                    Add Post: 
                     <input type="text" onChange={onChange} />
                 </label>
                 <button type="submit">Submit</button>

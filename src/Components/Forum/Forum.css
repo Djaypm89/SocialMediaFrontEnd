@@ -10,12 +10,30 @@
 
 .forum{
     border: 2px solid black;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60vw;
+    height: 40vh;
+    padding: 2%;
+    margin-top: 3vh;
+    margin-left: 20vw;
+    margin-right: 20vw;
+}
+
+.forum-header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 80vw;
-    padding: 2%;
-    margin-top: 3vh;
-    margin-left: 10vw;
-    margin-right: 10vw;
+    width: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+
+}
+
+.forum-body p{
+    height: 100%;
+    width: 100%;
 }

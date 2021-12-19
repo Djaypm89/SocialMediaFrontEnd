@@ -149,10 +149,16 @@ const Forum = (props) => {
                 {userPosts.map(post => {
                     return (
                         <div key={post._id} className="forum">
-                            <h3>User: {post.name}</h3>
-                            <h3>Post: {post.postBody}</h3>
-                            <button name={post._id} value={post.like} onClick={likePost}>Likes: {post.like}</button>
-                            <button name={post._id} onClick={deletePost}>X</button>
+                            <div className="forum-header">
+                                <h5>User: {post.name}</h5>
+                                <span>
+                                    <button name={post._id} value={post.like} onClick={likePost}>Likes: {post.like}</button>
+                                    <button name={post._id} onClick={deletePost}>X</button>
+                                </span>
+                            </div>
+                            <div className="forum-body">
+                                <p>Post: {post.postBody}</p>
+                            </div>
                         </div>
                     );
                 })}
@@ -169,9 +175,13 @@ const Forum = (props) => {
                 {friendsPosts.map(post => {
                     return (
                         <div key={post._id} className="forum">
-                            <h3>User: {post.name}</h3>
-                            <h3>Post: {post.postBody}</h3>
-                            <button name={post._id} value={post.like} onClick={likePost}>Likes: {post.like}</button>
+                            <div className="forum-header">
+                                <h5>User: {post.name}</h5>
+                                <button name={post._id} value={post.like} onClick={likePost}>Likes: {post.like}</button>
+                            </div>
+                            <div className="forum-body">
+                                <p>Post: {post.postBody}</p>
+                            </div>
                         </div>
                     );
                 })}
@@ -191,7 +201,7 @@ const Forum = (props) => {
     }else{
         return(
             <div>
-                <div>
+                <div className="forum-nav">
                     <button onClick={handleUserPost}>View User's Posts</button>
                     <button onClick={handleFriendPost}>View Friend's Posts</button>
                     <button onClick={handleCreatePost}>Create Post</button>

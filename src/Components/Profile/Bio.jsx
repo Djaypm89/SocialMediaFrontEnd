@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
+import "./Bio.css";
 
 const Bio = (props) => {
     const [userId, setUserId] = useState("");
@@ -62,17 +63,21 @@ const Bio = (props) => {
 
     if(!editable){
         return(
-            <div>
+            <div className="bio-cont">
                 <textarea readOnly={editable} onChange={handleChange} value={bio}></textarea>
-                <button onClick={toggleEdit}>Edit Bio</button>
-                <button onClick={submitBio}>Save Changes</button>
+                <div>
+                    <button onClick={toggleEdit}>Edit Bio</button>
+                    <button onClick={submitBio}>Save Changes</button>
+                </div>
             </div>
         );
     }else{
         return(
-            <div>
+            <div className="bio-cont">
                 <textarea readOnly={editable} onChange={handleChange} value={bio}></textarea>
-                <button onClick={toggleEdit}>Edit Bio</button>
+                <div>
+                    <button onClick={toggleEdit}>Edit Bio</button>
+                </div>
             </div>
         );
     }

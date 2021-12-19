@@ -1,0 +1,11 @@
+.bio-cont{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1%;
+}
+
+.bio-cont textarea{
+    height: 20vh;
+    margin: 1%;
+}

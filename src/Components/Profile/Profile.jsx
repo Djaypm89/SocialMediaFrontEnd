@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import jwtDecode from "jwt-decode";
 import { Link } from "react-router-dom";
 import Bio from "./Bio";
+import "./Profile.css";
 
 const Profile = (props)  => {
     const [currentUser, setCurrentUser] = useState({});
@@ -31,22 +32,16 @@ const Profile = (props)  => {
         );
     }else{
         return(
-            <div>
-                <header>
-                    <h1>My Page</h1>
-                    <h1>{name}</h1>
+            <div className="profile">
+                <header className="profile-header">
+                    <h1>{name}'s Profile</h1>
                 </header>
-                <main>
+                <main className="profile-main">
                     <span>
-                        <img></img>
                         <Bio />
                     </span>
                     <span>
-                        <button>View Posts</button>
-                    </span>
-                    <span>
-                        <Link to={"/FriendsRequest"}>View Friend Requests</Link>
-                        <button>View Friend Requests</button>
+                        <Link to={"/FriendsRequest"} className="link">View Friend Requests</Link>
                     </span>
                 </main>
             </div>
