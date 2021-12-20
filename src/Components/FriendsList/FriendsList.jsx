@@ -49,13 +49,13 @@ const FriendsList = (props) => {
     }
     if(!friends)
         return(
-            <h1>No friends sowwy</h1>
+            <h1>You currently have 0 friends</h1>
         )
     else{
         return(
             <div className="friend-card">
                 <div className="friend-header">
-                    <h1>Friends List:</h1>
+                    <p>You have {friends.length} friends!</p>
                 </div>
                 {listOfFriends}
                 {friends.map((friend => {

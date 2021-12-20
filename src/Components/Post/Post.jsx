@@ -58,12 +58,10 @@ const Post = (props) => {
     
     return (
         <div className="card-post">
-            <form className="card-body" onSubmit={handlePost}>
-                <center className="center">
+            <form className="card-post-body" onSubmit={handlePost}>
                 <label>Add Post:</label>
-                <textarea type="text" onChange={onChange} />
+                <textarea placeholder="Whats on your mind?"type="text" onChange={onChange} />
                 <button type="submit">Submit</button>
-                </center>
            </form>
         </div>
     );

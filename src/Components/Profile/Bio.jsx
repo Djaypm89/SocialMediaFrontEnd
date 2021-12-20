@@ -46,6 +46,8 @@ const Bio = (props) => {
     const toggleEdit = () => {
         let toggle = !editable;
         setEditable(toggle);
+        if (toggle)
+        window.location = '/Profile';
     }
 
      //Updates the User's Bio in the Database
@@ -66,9 +68,9 @@ const Bio = (props) => {
         return(
             <div className="bio-cont">
                 <textarea readOnly={editable} onChange={handleChange} value={bio}></textarea>
-                <div>
-                    <button onClick={toggleEdit}>Edit Bio</button>
-                    <button onClick={submitBio}>Save Changes</button>
+                <div className="bio-button2">
+                    <button onClick={() => toggleEdit()}>Exit</button>
+                    <button onClick={() => submitBio()}>Save Changes</button>
                 </div>
             </div>
         );
@@ -76,7 +78,7 @@ const Bio = (props) => {
         return(
             <div className="bio-cont">
                 <textarea readOnly={editable} onChange={handleChange} value={bio}></textarea>
-                <div>
+                <div className="bio-button">
                     <button onClick={toggleEdit}>Edit Bio</button>
                 </div>
             </div>

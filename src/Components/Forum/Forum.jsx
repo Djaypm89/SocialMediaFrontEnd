@@ -152,7 +152,7 @@ const Forum = (props) => {
                     return (
                         <div key={post._id} className="forum">
                             <div className="forum-header">
-                                <h5>{post.name}</h5>
+                                <h3>{post.name}</h3>
                                 <span>
                                     <button name={post._id} value={post.like} onClick={likePost}>Likes: {post.like}</button>
                                     <button name={post._id} onClick={deletePost}>X</button>
@@ -178,7 +178,7 @@ const Forum = (props) => {
                     return (
                         <div key={post._id} className="forum">
                             <div className="forum-header">
-                                <h5>{post.name}</h5>
+                                <h3>{post.name}</h3>
                                 <button name={post._id} value={post.like} onClick={likePost}>Likes: {post.like}</button>
                             </div>
                             <div className="forum-body">

@@ -113,8 +113,8 @@ const SearchBar = () => {
 
     if(filtered === undefined || filtered === []){
         return(
-            <div className="searchBar-cont-button">
-                <button onClick={filterUsers}>Show All Users</button>
+            <div>
+                <h2 color="white">Loading...</h2>
             </div>
         );
     }else if(filtered){

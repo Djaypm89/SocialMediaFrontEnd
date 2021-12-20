@@ -3,6 +3,7 @@ import jwtDecode from "jwt-decode";
 import { Link } from "react-router-dom";
 import Bio from "./Bio";
 import "./Profile.css";
+// import FilesUploadComponent from "../ImgUpload/files-upload-component";
 
 const Profile = (props)  => {
     const [currentUser, setCurrentUser] = useState({});
@@ -40,13 +41,16 @@ const Profile = (props)  => {
                     <span>
                         <Bio />
                     </span>
-                    <span>
+                    <span className="friend-button">
                         <Link to={"/FriendsRequest"} className="link">
                             <button>
-                            View Friend Requests
+                                View Friend Requests
                             </button>
                         </Link>
                     </span>
+                    {/* <span>
+                        <FilesUploadComponent />
+                    </span> */}
                 </main>
             </div>
         );

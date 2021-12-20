@@ -1,11 +1,30 @@
 .bio-cont{
     display: flex;
+    align-items: center;
     flex-direction: column;
-    width: 100%;
+    min-width: 100%;
     margin-bottom: 1%;
 }
 
 .bio-cont textarea{
-    height: 20vh;
+    width: 95%;
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 15vh;
     margin: 1%;
+}
+.bio-button{
+    margin-right: 89.5%;
+}
+.bio-button button{
+    border-radius: 5px;
+}
+.bio-button{
+    margin-right: 89.5%;
+}
+.bio-button2{
+    margin-right: 82%;
+}
+.bio-button2 button{
+    border-radius: 5px;
 }
