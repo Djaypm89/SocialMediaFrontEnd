@@ -57,18 +57,18 @@ const FriendsRequest = (props) => {
                 <center>
                 <p>You have {received.length} pending requests</p>
                     <p>Pending Requests:</p>
-                    <button onClick={() => filterRequests(received)}>View Sent Requests</button>
+                    <button onClick={() => filterRequests(received)}>View Pending Requests</button>
                     {requestors &&
                         <div>
                             {requestors.map((names) => {
                                 return (
                                     <div key={names}>
                                         <h3>{names}</h3>
+                                        {/* <button name={names} onClick={}></button> */}
                                     </div>
                                 )
                             })}
                         </div>
-                    
                     }
                 </center>
             </div>

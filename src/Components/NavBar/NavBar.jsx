@@ -7,7 +7,7 @@ const NavBar = ({user}) => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light"> 
       <a className="navbar-brand" href="/">
-        <img id="logo" alt="Logo" src="../gg.jpg" width="175" height="100" />
+        <img id="logo" alt="Logo" src="../gucci.png" width="106" height="100" />
     </a>
         <div className="container-fluid">
             {!user.email &&

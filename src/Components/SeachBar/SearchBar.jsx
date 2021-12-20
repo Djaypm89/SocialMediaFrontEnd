@@ -104,6 +104,7 @@ const SearchBar = () => {
             let response = await axios.post(`http://localhost:5000/api/users/request/${requestee}`, {}, 
                 { headers: { 'x-auth-token': jwt} }
             );
+            alert("Friend Request Sent");
         } catch (error) {
             console.log("Couldn't Send Friend Request!");
         }
