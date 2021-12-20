@@ -1,21 +1,31 @@
 import React, { useEffect, useState } from "react";
+import jwtDecode from "jwt-decode";
 import axios from "axios";
 import './FriendRequest.css'
 
 const FriendsRequest = (props) => {
+    const [userId, setUserId] = useState();
     const [received, setReceived] = useState();
     const [requestors, setRequestors] = useState();
 
-    useEffect(() => {
-        getReceivedRequests(); 
-    }, 
-    [received]);
+    useEffect(() => { getUserFromToken() }, [] );
+    useEffect(() => {getReceivedRequests()},[userId]);
+
+    const getUserFromToken = async () => {
+        const jwt = localStorage.getItem('token');
+        try {
+            let user = jwtDecode(jwt);
+            setUserId(user._id)
+        } catch (ex) {
+            console.log(`User not found..${ex}`);
+        }
+    }
 
     const getReceivedRequests = async () => {
         const jwt = localStorage.getItem('token');
         try {
             let response = await axios.get(`http://localhost:5000/api/users/request/recieved/`, { headers: { 'x-auth-token': jwt}});
-            setReceived(response.data)
+                setReceived(response.data)
         } catch (error) {
             console.log(error);
         }
@@ -27,14 +37,14 @@ const FriendsRequest = (props) => {
             request.filter( function(req){
                 req.status.includes("PENDING")
                 return (
-                    filteredList.push(req.requestor)
+                    filteredList.push(req.requestor),
+                    getUserById(filteredList)
                 )
             }
             )
         }else{
             console.log("no dice")
         }
-        getUserById(filteredList)
     }
 
     const getUserById = async (request) => {
@@ -69,7 +79,8 @@ const FriendsRequest = (props) => {
                                 return (
                                     <div key={names} className="card-requests-body">
                                         <h3>{names}</h3>
-                                        <button>Respond to Request</button>
+                                        <button>Accept</button>
+                                        <button>Reject</button>
                                     </div>
                                 )
                             })}

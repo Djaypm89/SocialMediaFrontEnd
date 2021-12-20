@@ -19,7 +19,7 @@
     background-color: white;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     min-width: 40vw;
     padding: 4%;
     margin-bottom: 15px;
@@ -29,4 +29,8 @@
 }
 .card-requests-body button {
     border-radius: 5px;
+    margin-left: 40%;
+}
+.card-requests-body button + button {
+    margin-left: 10px;
 }
