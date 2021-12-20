@@ -54,18 +54,18 @@ const FriendsList = (props) => {
     else{
         return(
             <div className="friend-card">
-                <center>
-                <h1>Friends List:</h1>
+                <div className="friend-header">
+                    <h1>Friends List:</h1>
+                </div>
                 {listOfFriends}
                 {friends.map((friend => {
                     return (
-                        <div key={friend._id}>
-                            <h3>Name: {friend.name}</h3>
-                            <h3>Bio: {friend.bio}</h3>
+                        <div key={friend._id} className="friend-card-body">
+                            <h2>Name: {friend.name}</h2>
+                            <h2>Bio:<h3>"{friend.bio}"</h3></h2>
                         </div>
                     )
                 }))}
-                </center>
             </div>
         );
     }
