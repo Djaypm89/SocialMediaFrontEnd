@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+
 import jwtDecode from "jwt-decode";
 import "./Post.css";
 
@@ -56,13 +57,15 @@ const Post = (props) => {
     
     
     return (
-        <div className="post" className="post-cont">
-            <form onSubmit={handlePost}>
+        <div className="card-post">
+            <form className="card-body" onSubmit={handlePost}>
+                <center>
                 <label>
                     Add Post: 
-                    <input type="text" onChange={onChange} />
+                    <textarea type="text" onChange={onChange} />
                 </label>
                 <button type="submit">Submit</button>
+                </center>
            </form>
         </div>
     );

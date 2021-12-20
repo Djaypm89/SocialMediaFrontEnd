@@ -7,12 +7,15 @@
 }
 
 .profile-header{
-    width: 100%;
+    width: 70vw;
+    border: 2px solid black;
+    padding: 2%;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    background-color: white;
 }
 
 .profile-header h1{
-    width: 90%;
-    margin: 5%;
     text-align: center;
 }
 
