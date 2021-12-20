@@ -1,0 +1,32 @@
+.card-requests {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    margin-top: 1vh;
+    margin-left: 30vw;
+    margin-right: 30vw;
+}
+.card-requests-heading {
+    background-color: white;
+    width: 40vw;
+    padding: 2%;
+    margin-bottom: 15px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.card-requests-body {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 40vw;
+    padding: 4%;
+    margin-bottom: 15px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.card-requests-body button {
+    border-radius: 5px;
+}
