@@ -1,11 +1,14 @@
 .card-post{
     width: 20vw;
-    height: 20vh;
+    height: 30%;
     margin-left: 40vw;
     margin-right: 40vw;
     margin-top: 20vh;
     background-color: white;
     border-radius: 10px;
+}
+.center form{
+    max-height: 90%;
 }
 .card-body textarea{
     height: 10vh;
