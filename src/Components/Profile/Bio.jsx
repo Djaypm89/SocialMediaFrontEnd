@@ -56,6 +56,7 @@ const Bio = (props) => {
         try {
             let response = await axios.put(`http://localhost:5000/api/user/bio/${id}`, { bio: newBio });
             console.log(response);
+            window.location = '/Profile';
         } catch (error) {
             console.log("Couldn't Update User Bio");
         }

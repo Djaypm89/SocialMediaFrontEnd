@@ -21,8 +21,8 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    width: 40vw;
-    height: 10vh;
+    min-width: 40vw;
+    min-height: 13vh;
     padding: 2%;
     margin-top: 3vh;
     overflow: hidden;
