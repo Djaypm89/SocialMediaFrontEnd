@@ -12,6 +12,7 @@ const SearchBar = () => {
     useEffect(() => { getUserId(); }, []);
     useEffect(() => { getAllUsers(); }, []);
     useEffect(() => { getUserInfo(); }, [userId]);
+    useEffect(() => {filterUsers()}, [userInfo]);
 
     /* Gets Loggin User ID from Token */
     const getUserId = () => {
@@ -39,7 +40,7 @@ const SearchBar = () => {
     /* FILTER HELPER FUNC:
     Checks User's for Current Loggin In User */
     const checkForUser = (user, id) => {
-        if(user !== null & id !== null){
+        if(user !== undefined & id !== undefined){
             let newListUsers = user.filter(user => {
                 if(user._id === id){
                     return false;
@@ -118,7 +119,7 @@ const SearchBar = () => {
         );
     }else if(filtered){
         return(
-            <div>
+            <div className="searchBar">
                 {filtered.map(user => {
                     return(
                         <div key={user._id} className="searchBar-cont">

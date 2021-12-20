@@ -8,14 +8,19 @@
     padding: 1%;
 }
 
+.forum-nav button{
+    border-radius: 10px;
+}
+
 .forum{
     border: 2px solid black;
+    border-radius: 10px;
     background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 60vw;
-    height: 25vh;
+    height: 30vh;
     padding: 2%;
     margin-top: 3vh;
     margin-left: 20vw;
@@ -29,8 +34,11 @@
     width: 100%;
     margin-left: 5%;
     margin-right: 5%;
-    margin-bottom: 5%;
+    /* margin-bottom: 5%; */
+}
 
+.forum-header button{
+    border-radius: 5px;
 }
 
 .forum-body p{

@@ -11,13 +11,15 @@ const Forum = (props) => {
     const [userPosts, setUserPosts] = useState([]);
     const [friendsList, setFriendsList] = useState([]);
     const [friendsPosts, setFriendsPosts] = useState([]);
-    const [viewUserPost, setViewUserPost] = useState(false);
+    const [viewUserPost, setViewUserPost] = useState(true);
     const [viewFriendPost, setViewFriendPost] = useState(false);
     const [createPost, setCreatePost] = useState(false);
 
     /* Use Effects */
     useEffect(() => {getToken()}, []);
+    useEffect(() => {getMyPosts()}, [userId]);
     useEffect(() => {getFriendsList()}, [userId]);
+    useEffect(() => {getFriendsPosts()}, [friendsList]);
     
     /* Extracts the Current Logged in User's ID from the 
     Token Saved in Brower Storage and Saves the ID in State. */
@@ -150,14 +152,14 @@ const Forum = (props) => {
                     return (
                         <div key={post._id} className="forum">
                             <div className="forum-header">
-                                <h5>User: {post.name}</h5>
+                                <h5>{post.name}</h5>
                                 <span>
                                     <button name={post._id} value={post.like} onClick={likePost}>Likes: {post.like}</button>
                                     <button name={post._id} onClick={deletePost}>X</button>
                                 </span>
                             </div>
                             <div className="forum-body">
-                                <p>Post: {post.postBody}</p>
+                                <p>{post.postBody}</p>
                             </div>
                         </div>
                     );
@@ -176,11 +178,11 @@ const Forum = (props) => {
                     return (
                         <div key={post._id} className="forum">
                             <div className="forum-header">
-                                <h5>User: {post.name}</h5>
+                                <h5>{post.name}</h5>
                                 <button name={post._id} value={post.like} onClick={likePost}>Likes: {post.like}</button>
                             </div>
                             <div className="forum-body">
-                                <p>Post: {post.postBody}</p>
+                                <p>{post.postBody}</p>
                             </div>
                         </div>
                     );
